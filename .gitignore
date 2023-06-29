@@ -1,0 +1,42 @@
+# 排除编译生成的类文件
+*.class
+
+# 排除编译生成的目录
+target/
+
+# 排除IDE和编辑器生成的文件和目录
+.idea/
+.vscode/
+
+# 排除构建工具生成的文件和目录
+/build/
+/out/
+
+# 排除日志文件
+*.log
+
+# 排除临时文件
+*.tmp
+
+# 排除运行时生成的文件
+*.runtime
+
+# 排除依赖管理工具生成的目录
+/node_modules/
+/bower_components/
+
+# 排除本地配置文件
+application.properties
+application.yml
+
+# 排除IDE和编辑器的配置文件
+*.iml
+*.ipr
+*.iws
+
+# 排除系统文件
+.DS_Store
+Thumbs.db
+
+# 排除备份文件
+*~
