@@ -1,4 +1,4 @@
-package org.freely.commom.type;
+package org.freely.commom.enums;
 
 public enum RangeTypeEnum {
     PRIVATE,

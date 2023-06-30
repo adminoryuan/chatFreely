@@ -1,5 +1,6 @@
 package org.freely.netty.handler;
 
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
+@ChannelHandler.Sharable
 public class IMServerWebSocketHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {

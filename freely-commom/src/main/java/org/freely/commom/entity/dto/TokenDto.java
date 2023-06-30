@@ -7,6 +7,6 @@ public class TokenDto {
 
     private String userName;
 
-    private String userId;
+    private Long userId;
 
 }

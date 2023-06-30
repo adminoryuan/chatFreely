@@ -11,6 +11,7 @@
     <modules>
         <module>freely-netty</module>
         <module>freely-commom</module>
+        <module>freely-router</module>
     </modules>
 
     <properties>

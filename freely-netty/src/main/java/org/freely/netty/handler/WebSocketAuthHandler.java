@@ -23,14 +23,16 @@ public class WebSocketAuthHandler extends ChannelInboundHandlerAdapter {
             //根据请求头的 auth-token 进行鉴权操作
             String authToken = msg1.headers().get("auth-token");
 
-            if (StringUtils.isEmpty(authToken)) {
-                noAuthResponse(ctx);
-                return;
-            }
-            TokenDto tokenDto;
-            if ((tokenDto= RedisUtils.get(authToken,TokenDto.class))==null) {
-                noAuthResponse(ctx);
-            }
+//            if (StringUtils.isEmpty(authToken)) {
+//                noAuthResponse(ctx);
+//                return;
+//            }
+            TokenDto tokenDto=new TokenDto();
+            tokenDto.setUserId(1L);
+            tokenDto.setUserName("adminoryuan");
+//            if ((tokenDto= RedisUtils.get(authToken,TokenDto.class))==null) {
+//                noAuthResponse(ctx);
+//            }
             SessionUtils.bindSession(tokenDto.getUserName(),ctx.channel());
         }
         ctx.fireChannelRead(msg);

@@ -2,7 +2,7 @@ package org.freely.netty;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class SpringBeanLoader {
+public class SpringLoader {
     private static AnnotationConfigApplicationContext  context;
 
     public static void Init()  {

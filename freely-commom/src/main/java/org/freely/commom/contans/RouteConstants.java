@@ -1,9 +1,9 @@
 package org.freely.commom.contans;
 
-public class RouteContans {
+public final class RouteConstants  {
     private static final String SessionKeyPrefix="route_session_";
 
-    public String MergeRoute(String sessionId){
+    public static String MergeRoute(String sessionId){
         return String.format("{0}_{1}",SessionKeyPrefix,sessionId);
     }
 }

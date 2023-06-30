@@ -6,6 +6,8 @@ import com.alibaba.nacos.api.exception.NacosException;
 import com.alibaba.nacos.api.naming.NamingService;
 import com.alibaba.nacos.api.naming.pojo.Instance;
 import com.alibaba.nacos.spring.context.annotation.discovery.EnableNacosDiscovery;
+
+import org.freely.commom.contans.NacosConstants;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,19 +15,19 @@ import javax.annotation.PostConstruct;
 
 
 @Configuration
-@EnableNacosDiscovery(globalProperties = @NacosProperties(serverAddr = "127.0.0.1:8848",namespace = "e3922e53-079b-4910-a9a7-04d4aafb622b"))
+@EnableNacosDiscovery(globalProperties = @NacosProperties(serverAddr = "124.221.132.50",namespace = "ad927766-25e2-4f8e-a386-e303cb641d3e"))
 public class NacosConfiguration  {
     @NacosInjected
     private NamingService namingService;
 
-    @Value("${nacos.server.address}")
+    @Value("${im.server.address}")
     private String addr;
+
+    @Value("${im.server.port}")
+    private Integer port;
+
     @Value("${nacos.server.namespace}")
     private String namespace;
-
-    @Value("${nacos.server.name}")
-    private String serverName;
-
 
     public NacosConfiguration() {
     }
@@ -34,11 +36,11 @@ public class NacosConfiguration  {
     public void registerService() throws NacosException {
         Instance instance = new Instance();
         instance.setIp(addr); // 设置服务实例的IP
-        instance.setPort(8080); // 设置服务实例的端口
-        instance.setServiceName(namespace); // 设置服务名称
+        instance.setPort(port); // 设置服务实例的端口
+        instance.setServiceName(NacosConstants.NacosImServiceName); // 设置服务名称
 
         // 注册服务实例
-        namingService.registerInstance(serverName, instance);
+        namingService.registerInstance(NacosConstants.NacosImServiceName, instance);
     }
 
 }

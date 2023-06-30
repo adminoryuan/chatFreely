@@ -1,8 +1,7 @@
 package org.freely.commom.contans;
 
-public class NacosContans {
+public final class NacosConstants {
     public static final String NacosImServiceName ="im-service";
-
 
 
 }

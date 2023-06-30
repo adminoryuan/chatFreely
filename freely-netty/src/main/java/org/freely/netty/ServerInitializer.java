@@ -16,6 +16,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 @Component
+
 public class ServerInitializer extends ChannelInitializer<Channel> {
     @Autowired
     private WebSocketAuthHandler webSocketAuthHandler;

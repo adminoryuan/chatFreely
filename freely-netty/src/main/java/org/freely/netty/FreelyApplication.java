@@ -15,7 +15,7 @@ public class FreelyApplication {
     public static void main(String[] args) throws InterruptedException, NacosException {
 
         //spring初始化
-        SpringBeanLoader.Init();
+        SpringLoader.Init();
         //netty初始化
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
         EventLoopGroup workerGroup = new NioEventLoopGroup(8);
@@ -23,7 +23,7 @@ public class FreelyApplication {
                 .channel(NioServerSocketChannel.class).childOption(ChannelOption.SO_BACKLOG, 1024)
                 .childOption(ChannelOption.SO_KEEPALIVE, false)
                 .childOption(ChannelOption.TCP_NODELAY, true)
-                .childHandler(SpringBeanLoader.getBean(ServerInitializer.class));
+                .childHandler(SpringLoader.getBean(ServerInitializer.class));
         ChannelFuture channelFuture = bind(serverBootstrap, PORT, false);
         log.info(String.format("{0} 启动成功",PORT));
         channelFuture.channel().closeFuture().addListener(new ChannelFutureListener() {
