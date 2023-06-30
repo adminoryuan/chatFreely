@@ -25,9 +25,7 @@ target/
 /node_modules/
 /bower_components/
 
-# 排除本地配置文件
-application.properties
-application.yml
+
 
 # 排除IDE和编辑器的配置文件
 *.iml
