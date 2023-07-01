@@ -45,6 +45,19 @@
             <artifactId>nacos-spring-context</artifactId>
             <version>1.1.0</version>
         </dependency>
+
+        <!--&lt;!&ndash;整合rabbitmq的包&ndash;&gt;-->
+        <dependency>
+            <groupId>com.rabbitmq</groupId>
+            <artifactId>amqp-client</artifactId>
+            <version>5.4.3</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.amqp/spring-rabbit -->
+        <dependency>
+            <groupId>org.springframework.amqp</groupId>
+            <artifactId>spring-rabbit</artifactId>
+            <version>2.0.0.RELEASE</version>
+        </dependency>
     </dependencies>
 
 </project>

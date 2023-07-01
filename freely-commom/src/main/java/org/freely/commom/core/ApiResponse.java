@@ -1,6 +1,9 @@
 package org.freely.commom.core;
 
+import lombok.Builder;
+
 // 通用响应对象
+@Builder
 public class ApiResponse<T> {
     private int code;
     private String message;
