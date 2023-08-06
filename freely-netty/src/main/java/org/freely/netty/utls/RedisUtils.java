@@ -23,6 +23,10 @@ public class RedisUtils {
         String json = jedis.get(key);
         return objectMapper.readValue(json, clazz);
     }
+    // 删除指定的键
+    public static void removeKey(String key) {
+        jedis.del(key);
+    }
 
     // 关闭Redis连接
     public static void close() {

@@ -23,7 +23,6 @@ public class WebSocketHeartbeatHandler extends ChannelInboundHandlerAdapter {
         executorService.scheduleAtFixedRate(() -> {
             sendHeartbeat(ctx);
         }, HEARTBEAT_INTERVAL_SECONDS, HEARTBEAT_INTERVAL_SECONDS, TimeUnit.SECONDS);
-
         super.channelActive(ctx);
     }
     @Override

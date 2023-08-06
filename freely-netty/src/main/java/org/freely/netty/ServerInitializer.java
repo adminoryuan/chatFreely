@@ -7,7 +7,8 @@ import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import org.freely.netty.codec.WebSocketEncoder;
-import org.freely.netty.handler.IMServerWebSocketHandler;
+import org.freely.netty.handler.LogoutHandler;
+import org.freely.netty.handler.MessageHandler;
 import org.freely.netty.handler.WebSocketAuthHandler;
 import org.freely.netty.handler.WebSocketHeartbeatHandler;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,10 @@ public class ServerInitializer extends ChannelInitializer<Channel> {
     @Autowired
     private WebSocketAuthHandler webSocketAuthHandler;
     @Autowired
-    private  IMServerWebSocketHandler imServerWebSocketHandler;
+    private LogoutHandler logoutHandler;
+
+    @Autowired
+    private MessageHandler messageHandler;
 
     @Value("${websocket.router}")
     private  String WebSocketRouter;
@@ -33,11 +37,11 @@ public class ServerInitializer extends ChannelInitializer<Channel> {
         ChannelPipeline pipeline = channel.pipeline();
         pipeline.addLast(new HttpServerCodec());
         pipeline.addLast(new HttpObjectAggregator(65536));
-
         pipeline.addLast(webSocketAuthHandler);
         pipeline.addLast(new WebSocketServerProtocolHandler(WebSocketRouter));
         pipeline.addLast(webSocketHeartbeatHandler);
-        pipeline.addLast(imServerWebSocketHandler);
+        pipeline.addLast(messageHandler);
+        pipeline.addLast(logoutHandler);
 
         pipeline.addLast(new WebSocketEncoder());
     }

@@ -14,7 +14,6 @@ import org.springframework.context.annotation.Configuration;
 import javax.annotation.PostConstruct;
 
 
-@Configuration
 @EnableNacosDiscovery(globalProperties = @NacosProperties(serverAddr = "124.221.132.50",namespace = "ad927766-25e2-4f8e-a386-e303cb641d3e"))
 public class NacosConfiguration  {
     @NacosInjected

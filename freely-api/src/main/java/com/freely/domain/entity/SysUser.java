@@ -28,5 +28,4 @@ public class SysUser implements Serializable {
 
     private LocalDateTime loginDate;
 
-
 }

@@ -27,7 +27,6 @@ public class WebSocketAuthHandler extends ChannelInboundHandlerAdapter {
             FullHttpRequest msg1 = (FullHttpRequest) msg;
             //根据请求头的 auth-token 进行鉴权操作
             String authToken = msg1.headers().get("auth-token");
-
             if (StringUtils.isEmpty(authToken)) {
                 noAuthResponse(ctx);
                 return;
@@ -36,17 +35,17 @@ public class WebSocketAuthHandler extends ChannelInboundHandlerAdapter {
             if ((tokenDto= RedisUtils.get(authToken,TokenDto.class))==null) {
                 noAuthResponse(ctx);
             }
-
             tokenDto.setUserId(1L);
             tokenDto.setUserName("adminoryuan");
-            iRouterService.addRouter(tokenDto, ctx.channel());
+            //iRouterService.addRouter(tokenDto, ctx.channel());
             SessionUtils.bindSession(tokenDto.getUserName(), ctx.channel());
         }
         ctx.fireChannelRead(msg);
     }
 
     private void noAuthResponse(ChannelHandlerContext ctx) {
-        ctx.channel().writeAndFlush(new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.UNAUTHORIZED));
+        DefaultFullHttpResponse response= new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.UNAUTHORIZED);
+        ctx.channel().writeAndFlush(response);
         ctx.channel().close();
     }
 }
