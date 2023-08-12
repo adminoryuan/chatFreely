@@ -36,7 +36,7 @@ public class WebSocketAuthHandler extends ChannelInboundHandlerAdapter {
                 noAuthResponse(ctx);
             }
             tokenDto.setUserId(1L);
-            tokenDto.setUserName("adminoryuan");
+            tokenDto.setUserName(tokenDto.getUserName());
             //iRouterService.addRouter(tokenDto, ctx.channel());
             SessionUtils.bindSession(tokenDto.getUserName(), ctx.channel());
            // ctx.pipeline().remove(this);
