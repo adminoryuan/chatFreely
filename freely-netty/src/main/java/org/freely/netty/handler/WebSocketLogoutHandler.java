@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 @ChannelHandler.Sharable
-public class LogoutHandler extends SimpleChannelInboundHandler<LogoutPacket> {
+public class WebSocketLogoutHandler extends SimpleChannelInboundHandler<LogoutPacket> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, LogoutPacket logoutPacket) throws Exception {
         String token = logoutPacket.getToken();

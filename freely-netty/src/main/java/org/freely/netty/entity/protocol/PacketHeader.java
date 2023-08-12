@@ -1,5 +1,6 @@
 package org.freely.netty.entity.protocol;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import lombok.Data;
 import org.freely.netty.enums.PacketType;
 
@@ -7,6 +8,6 @@ import org.freely.netty.enums.PacketType;
 public class PacketHeader {
     PacketType type;
 
-    Object body;
+    JsonNode body;
 
 }

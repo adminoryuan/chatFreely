@@ -20,13 +20,13 @@ import org.springframework.stereotype.Component;
 public class WebSocketAuthHandler extends ChannelInboundHandlerAdapter {
     @Autowired
     private IRouterService iRouterService;
-
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         if (msg instanceof FullHttpRequest) {
             FullHttpRequest msg1 = (FullHttpRequest) msg;
+
             //根据请求头的 auth-token 进行鉴权操作
-            String authToken = msg1.headers().get("auth-token");
+            String authToken = msg1.headers().get("Authorization");
             if (StringUtils.isEmpty(authToken)) {
                 noAuthResponse(ctx);
                 return;
@@ -39,6 +39,7 @@ public class WebSocketAuthHandler extends ChannelInboundHandlerAdapter {
             tokenDto.setUserName("adminoryuan");
             //iRouterService.addRouter(tokenDto, ctx.channel());
             SessionUtils.bindSession(tokenDto.getUserName(), ctx.channel());
+           // ctx.pipeline().remove(this);
         }
         ctx.fireChannelRead(msg);
     }

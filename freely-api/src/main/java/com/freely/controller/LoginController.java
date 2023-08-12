@@ -20,7 +20,4 @@ public class LoginController extends BaseController{
     public ResponseEntity<ApiResponse<Object>> Login(@RequestBody LoginRequest request){
         return successResponse(loginService.Login(request),"登录成功！");
     }
-
-
-
 }

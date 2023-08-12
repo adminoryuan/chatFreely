@@ -7,6 +7,6 @@ import org.freely.netty.enums.PacketType;
 import java.io.Serializable;
 
 @Data
-public class LogoutPacket implements Serializable, PacketBody {
+public class LogoutPacket extends PacketBody implements Serializable {
     String token;
 }

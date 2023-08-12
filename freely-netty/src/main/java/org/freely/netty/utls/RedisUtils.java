@@ -7,8 +7,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 
 public class RedisUtils {
-    private static final String HOST = "";
-    private static final int PORT = 0;
+    private static final String HOST = "127.0.0.1";
+    private static final int PORT = 6379;
     private static final Jedis jedis = new Jedis(HOST, PORT);
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
