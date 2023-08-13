@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @ChannelHandler.Sharable
-public class WebSocketAuthHandler extends ChannelInboundHandlerAdapter {
+public class FreelyAuthHandler extends ChannelInboundHandlerAdapter {
     @Autowired
     private IRouterService iRouterService;
     @Override
@@ -39,7 +39,7 @@ public class WebSocketAuthHandler extends ChannelInboundHandlerAdapter {
             tokenDto.setUserName(tokenDto.getUserName());
             //iRouterService.addRouter(tokenDto, ctx.channel());
             SessionUtils.bindSession(tokenDto.getUserName(), ctx.channel());
-           // ctx.pipeline().remove(this);
+           ctx.pipeline().remove(this);
         }
         ctx.fireChannelRead(msg);
     }

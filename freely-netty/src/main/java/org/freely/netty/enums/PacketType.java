@@ -3,5 +3,7 @@ package org.freely.netty.enums;
 
 public enum PacketType {
     MessageType,
-    LogoutType
+    LogoutType,
+
+    OnLineType,
 }

@@ -1,4 +1,4 @@
-package org.freely.netty.entity.protocol.impl;
+package org.freely.netty.entity.protocol.impl.request;
 
 import lombok.Data;
 import org.freely.netty.entity.protocol.PacketBody;

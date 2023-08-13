@@ -8,6 +8,6 @@ import org.freely.netty.enums.PacketType;
 public class PacketHeader {
     PacketType type;
 
-    JsonNode body;
+    PacketBody body;
 
 }

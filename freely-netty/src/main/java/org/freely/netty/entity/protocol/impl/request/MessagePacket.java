@@ -1,4 +1,4 @@
-package org.freely.netty.entity.protocol.impl;
+package org.freely.netty.entity.protocol.impl.request;
 
 import com.sun.org.apache.xml.internal.serialize.Serializer;
 import lombok.Data;

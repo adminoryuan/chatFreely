@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 @ChannelHandler.Sharable
 @Component
-public class WebSocketHeartbeatHandler extends ChannelInboundHandlerAdapter {
+public class FreelyHeartbeatHandler extends ChannelInboundHandlerAdapter {
     private static final String HEARTBEAT_MESSAGE = "Heartbeat";
     private static final long HEARTBEAT_INTERVAL_SECONDS = 10;
     private ScheduledExecutorService executorService;
